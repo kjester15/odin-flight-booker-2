@@ -14,5 +14,13 @@ airports = []
 end
 
 100.times do
-  Flight.create([{ departure_date: DateTime.now + rand(1..90).days, duration: rand(60..400), departure_airport: airports.sample.id, arrival_airport: airports.sample.id }])
+  departure = airports.sample
+  arrival = nil
+  loop do
+    arrival = airports.sample
+    if arrival != departure
+      break
+    end
+  end
+  Flight.create([{ departure_date: DateTime.now + rand(1..90).days, duration: rand(60..400), departure_airport: departure, arrival_airport: arrival }])
 end
