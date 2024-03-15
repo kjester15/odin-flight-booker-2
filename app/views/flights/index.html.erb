@@ -1,0 +1,11 @@
+<%= form_with model: @flight, method: :get do |f| %>
+  <%= select_tag(:departure_airport_id , options_for_select(@departure_airports)) %>
+  <%= f.label :departure_airport_id, "Departure Airport" %><br><br>
+  <%= select_tag(:arrival_airport_id , options_for_select(@arrival_airports)) %>
+  <%= f.label :arrival_airport_id, "Arrival Airport" %><br><br>
+  <%= select_tag(:departure_date, options_for_select(@dates, :departure_date_formatted)) %>
+  <%= f.label :departure_date, "Departure Date" %><br><br>
+  <%= select_tag(:passengers, options_for_select(@passengers)) %> <%# need to update the passengers tag %>
+  <%= f.label :passengers, "Number of Passengers" %><br><br> <%# need to update the passengers tag %>
+  <%= f.submit "Search" %>
+<% end %>
