@@ -10,10 +10,10 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<%# <% @results.each do |result| %> %>
-  <%# <ul>   %>
-    <%# <li> %>
-      <%# <%= result.id %> %>
-    <%# </li> %>
-  <%# </ul> %>
-<%# <% end %> %>
+<% @results.each do |result| %>
+  <ul>  
+    <li>
+      <%= result.id %>
+    </li>
+  </ul>
+<% end %>
