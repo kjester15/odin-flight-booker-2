@@ -1,11 +1,11 @@
 <%= form_with model: @flight, method: :get do |f| %>
-  <%= select_tag(:departure_airport_id , options_for_select(@departure_airports)) %>
+  <%= select_tag(:departure_airport_id , options_for_select(@departure_airports, params[:departure_airport_id])) %>
   <%= f.label :departure_airport_id, "Departure Airport" %><br><br>
-  <%= select_tag(:arrival_airport_id , options_for_select(@arrival_airports)) %>
+  <%= select_tag(:arrival_airport_id , options_for_select(@arrival_airports, params[:arrival_airport_id])) %>
   <%= f.label :arrival_airport_id, "Arrival Airport" %><br><br>
-  <%= select_tag(:departure_date, options_from_collection_for_select(Flight.get_flight_dates, :departure_date, :departure_date_formatted)) %>
+  <%= select_tag(:departure_date, options_from_collection_for_select(Flight.get_flight_dates, :departure_date, :departure_date_formatted, params[:departure_date])) %>
   <%= f.label :departure_date, "Departure Date" %><br><br>
-  <%= select_tag(:passengers, options_for_select(@passengers)) %>
+  <%= select_tag(:passengers, options_for_select(@passengers, params[:passengers])) %>
   <%= f.label :passengers, "Number of Passengers" %><br><br>
   <%= f.submit "Search" %>
 <% end %>
