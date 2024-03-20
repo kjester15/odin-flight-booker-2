@@ -13,7 +13,14 @@
 <% @results.each do |result| %>
   <ul>  
     <li>
-      <%= result.id %>
+      <%= "Flight Number:" %>
+      <%= result.id %><br>
+      <%= "Departing From: " %>
+      <%= Airport.find(result.departure_airport_id).code %><br>
+      <%= "Arriving at: " %>
+      <%= Airport.find(result.arrival_airport_id).code %><br>
+      <%= "Departing on: " %>
+      <%= result.departure_date_formatted %>
     </li>
   </ul>
 <% end %>
