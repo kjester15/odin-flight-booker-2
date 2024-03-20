@@ -7,20 +7,18 @@
   <%= f.label :departure_date, "Departure Date" %><br><br>
   <%= select_tag(:passengers, options_for_select(@passengers, params[:passengers])) %>
   <%= f.label :passengers, "Number of Passengers" %><br><br>
-  <%= f.submit "Search" %>
+  <%= f.submit "Search" %><br><br>
 <% end %>
 
 <% @results.each do |result| %>
-  <ul>  
-    <li>
-      <%= "Flight Number:" %>
-      <%= result.id %><br>
-      <%= "Departing From: " %>
-      <%= Airport.find(result.departure_airport_id).code %><br>
-      <%= "Arriving at: " %>
-      <%= Airport.find(result.arrival_airport_id).code %><br>
-      <%= "Departing on: " %>
-      <%= result.departure_date_formatted %>
-    </li>
-  </ul>
+  <div>  
+    <strong><%= "Flight Number:" %>
+    <%= result.id %></strong><br>
+    <%= "Departing From: " %>
+    <%= Airport.find(result.departure_airport_id).code %><br>
+    <%= "Arriving at: " %>
+    <%= Airport.find(result.arrival_airport_id).code %><br>
+    <%= "Departing on: " %>
+    <%= result.departure_date_formatted %>
+  </div>
 <% end %>
