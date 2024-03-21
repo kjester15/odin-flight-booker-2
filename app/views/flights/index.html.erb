@@ -10,30 +10,11 @@
   <%= f.submit "Search" %><br><br>
 <% end %>
 
-<% @results.each do |result| %>
-  <div>  
-    <strong><%= "Flight Number:" %>
-    <%= result.id %></strong><br>
-    <%= "Departing From: " %>
-    <%= Airport.find(result.departure_airport_id).code %><br>
-    <%= "Arriving at: " %>
-    <%= Airport.find(result.arrival_airport_id).code %><br>
-    <%= "Departing on: " %>
-    <%= result.departure_date_formatted %><br><br>
-  </div>
-<% end %>
-
 <%= form_with model: @booking, method: :post do |f| %>
   <% @results.each do |result| %>
-    <div>  
-      <strong><%= "Flight Number:" %>
-      <%= result.id %></strong><br>
-      <%= f.label :departure_airport_id, "Departing From: " %>
-      <%= Airport.find(result.departure_airport_id).code %><br>
-      <%= f.label :arrival_airport_id, "Arriving At: " %>
-      <%= Airport.find(result.arrival_airport_id).code %><br>
-      <%= f.label :departure_date, "Departing on: " %>
-      <%= result.departure_date_formatted %><br><br>
+      <%= "Flight:" %>
+      <%= result.id %>
+      <%= radio_button_tag :flight_id, result.id %><br><br>
     </div>
   <% end %>
   <%= f.submit "Submit" %>
