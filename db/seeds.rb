@@ -12,7 +12,7 @@ airports = []
   airports << Airport.create(code: airport_code)
 end
 
-1000.times do
+10000.times do
   departure = airports.sample
   arrival = nil
   loop do
