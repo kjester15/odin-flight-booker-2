@@ -10,7 +10,9 @@
   <%= f.submit "Search" %><br><br>
 <% end %>
 
-<%= form_with model: @booking, method: :post do |f| %>
+<% @results = Flight.where(departure_airport_id: params[:departure_airport_id]).where(arrival_airport_id: params[:arrival_airport_id]).where(departure_date: params[:departure_date]) %>
+
+<%= form_with model: @booking, url: "/bookings/new", method: :get do |f| %>
   <% @results.each do |result| %>
       <%= "Flight:" %>
       <%= result.id %>

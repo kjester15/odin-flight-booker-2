@@ -7,9 +7,9 @@ class BookingsController < ApplicationController
     @booking = EventUser.new(booking_params)
 
     if @booking.save
-      # redirect_to events_path
+      redirect_to new_booking_path
     else
-      # redirect_to events_path, status: :unprocessable_entity
+      redirect_to flights_path, status: :unprocessable_entity
     end
   end
 
