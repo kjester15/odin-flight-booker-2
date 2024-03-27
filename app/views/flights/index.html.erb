@@ -15,7 +15,7 @@
       <%= "Flight:" %>
       <%= result.id %>
       <%= radio_button_tag :flight_id, result.id %><br><br>
-    </div>
   <% end %>
+  <%= f.hidden_field :passengers, value: params[:passengers] %>
   <%= f.submit "Submit" %>
 <% end %>
