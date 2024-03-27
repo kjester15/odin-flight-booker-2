@@ -1,8 +1,14 @@
 <%= form_with model: @booking do |f| %>
-  <%= f.label :flight_id, "Flight Number:" %><br>
-  <%= f.label :departure_airport_id, "Departure Airport" %><br><br>
-  <%= f.label :arrival_airport_id, "Arrival Airport" %><br><br>
-  <%= f.label :departure_date, "Departure Date" %><br><br>
-  <%= f.label :passengers, "Number of Passengers" %><br><br>
+  <%= "Flight Number:" %>
+  <%= params[:flight_id] %><br>
+  <%= "Departure Airport: " %>
+  <%= params[:departure_airport_id] %><br>
+  <%= "Arrival Airport: " %>
+  <%= params[:arrival_airport_id] %><br>
+  <%= "Departure Date: " %>
+  <%= params[:departure_date] %><br>
+  <%= "Number of Passengers: " %>
+  <%= params[:passengers] %><br>
+  
   <%= f.submit "Submit" %>
 <% end %>

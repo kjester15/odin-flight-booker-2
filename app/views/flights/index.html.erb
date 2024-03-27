@@ -19,5 +19,9 @@
       <%= radio_button_tag :flight_id, result.id %><br><br>
   <% end %>
   <%= f.hidden_field :passengers, value: params[:passengers] %>
+  <%= f.hidden_field :departure_airport_id, value: params[:departure_airport_id] %>
+  <%= f.hidden_field :arrival_airport_id, value: params[:arrival_airport_id] %>
+  <%= f.hidden_field :departure_date, value: params[:departure_date] %>
+
   <%= f.submit "Submit" %>
 <% end %>
