@@ -1,4 +1,4 @@
-<%= form_with model: @flight, method: :get do |f| %>
+<%= form_with method: :get do |f| %>
   <%= select_tag(:departure_airport_id , options_for_select(@departure_airports, params[:departure_airport_id])) %>
   <%= f.label :departure_airport_id, "Departure Airport" %><br><br>
   <%= select_tag(:arrival_airport_id , options_for_select(@arrival_airports, params[:arrival_airport_id])) %>
