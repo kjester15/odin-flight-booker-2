@@ -4,7 +4,9 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = EventUser.new(booking_params)
+    params[:passengers].to_i.times.each do
+      @booking = Booking.new(flight_id: params[flight_id], passenger_id: Passenger.new(name: params[passenger[name]], email: params[passenger[email]]).id)
+    end
 
     if @booking.save
       redirect_to new_booking_path

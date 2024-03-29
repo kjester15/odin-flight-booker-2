@@ -1,14 +1,18 @@
-<%= form_with model: @booking do |f| %>
+<%= form_with model: @booking, method: :post do |f| %>
   <%= "Flight Number:" %>
   <%= params[:flight_id] %><br>
   <%= "Departure Airport: " %>
-  <%= params[:departure_airport_id] %><br>
+  <%= Airport.find(params[:departure_airport_id]).code %><br>
   <%= "Arrival Airport: " %>
-  <%= params[:arrival_airport_id] %><br>
+  <%= Airport.find(params[:arrival_airport_id]).code %><br>
   <%= "Departure Date: " %>
-  <%= params[:departure_date] %><br>
-  <%= "Number of Passengers: " %>
-  <%= params[:passengers] %><br>
-  
+  <%= params[:departure_date] %><br><br>
+  <%= params[:passengers].to_i.times do |i| %>
+    <%= "Passenger #{i + 1}" %><br>
+    <%= f.label :name, "Name: " %>
+    <%= f.text_field :name %><br>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %><br><br>
+  <% end %>
   <%= f.submit "Submit" %>
 <% end %>
