@@ -1,6 +1,7 @@
 <%= form_with model: @booking, method: :post do |f| %>
   <%= "Flight Number:" %>
   <%= params[:flight_id] %><br>
+  <%= f.hidden_field :flight_id, value: params[:flight_id] %>
   <%= "Departure Airport: " %>
   <%= Airport.find(params[:departure_airport_id]).code %><br>
   <%= "Arrival Airport: " %>
