@@ -1,0 +1,9 @@
+<%= "Booking ID: " %>
+<%= @booking.id %><br><br>
+<%= "Passengers:" %><br><br>
+<% @passengers.each do |passenger| %>
+  <%= "Name: " %>
+  <%= passenger.name %><br>
+  <%= "Email: " %>
+  <%= passenger.email %><br><br>
+<% end %>

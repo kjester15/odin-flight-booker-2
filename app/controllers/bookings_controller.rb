@@ -8,10 +8,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to flights_path
+      redirect_to booking_path(@booking.id)
     else
       redirect_to new_booking_path, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @passengers = @booking.passengers.all
   end
 
   private
