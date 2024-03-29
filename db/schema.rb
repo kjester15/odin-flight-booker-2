@@ -43,11 +43,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_004018) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "flight_id"
-    t.index ["flight_id"], name: "index_passengers_on_flight_id"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_passengers_on_booking_id"
   end
 
   add_foreign_key "flights", "airports", column: "arrival_airport_id"
   add_foreign_key "flights", "airports", column: "departure_airport_id"
-  add_foreign_key "passengers", "flights"
+  add_foreign_key "passengers", "bookings"
 end

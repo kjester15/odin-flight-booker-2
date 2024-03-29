@@ -7,12 +7,12 @@
   <%= Airport.find(params[:arrival_airport_id]).code %><br>
   <%= "Departure Date: " %>
   <%= params[:departure_date] %><br><br>
-  <%= params[:passengers].to_i.times do |i| %>
-    <%= "Passenger #{i + 1}" %><br>
-    <%= f.label :name, "Name: " %>
-    <%= f.text_field :name %><br>
-    <%= f.label :email, "Email: " %>
-    <%= f.text_field :email %><br><br>
+  <%= "Passengers: " %><br><br>
+  <%= f.fields_for :passengers do |passengers_form|%>
+    <%= passengers_form.label :name, "Name: " %>
+    <%= passengers_form.text_field :name %><br>
+    <%= passengers_form.label :email, "Email: " %>
+    <%= passengers_form.text_field :email %><br><br>
   <% end %>
   <%= f.submit "Submit" %>
 <% end %>
