@@ -1,4 +1,4 @@
-<%= form_with model: @booking, method: :post do |f| %>
+<%= form_with model: @booking, data: {controller: 'passenger'},method: :post do |f| %>
   <%= "Flight Number:" %>
   <%= params[:flight_id] %><br>
   <%= f.hidden_field :flight_id, value: params[:flight_id] %>
@@ -9,23 +9,21 @@
   <%= "Departure Date: " %>
   <%= params[:departure_date] %><br><br>
   <%= "Passengers: " %><br><br>
-  <div data-controller="passenger">
+  <div data-passenger-target="form">
     <%= f.fields_for :passengers do |passengers_form|%>
-      <%= passengers_form.label :name, "Name: " %>
-      <%= passengers_form.text_field :name %><br>
-      <%= passengers_form.label :email, "Email: " %>
-      <%= passengers_form.text_field :email %><br><br>
+        <%= passengers_form.label :name, "Name: " %>
+        <%= passengers_form.text_field :name %><br>
+        <%= passengers_form.label :email, "Email: " %>
+        <%= passengers_form.text_field :email %><br><br>
     <% end %>
   </div>
   <br>
+  <button type="button" data-action="passenger#add">
+    Add Passenger
+  </button><br>
+  <button type="button" data-action="passenger#remove">
+    Remove Passenger
+  </button><br><br>
   <%= f.submit "Submit" %>
 <% end %>
 <br>
-<div data-controller="passenger">
-  <button data-passenger-target="add" data-action="passenger#add">
-    Add Passenger
-  </button><br>
-  <button data-passenger-target="remove" data-action="passenger#remove">
-    Remove Passenger
-  </button><br>
-</div>
