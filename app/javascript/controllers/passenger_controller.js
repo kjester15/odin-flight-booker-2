@@ -1,19 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "additional"]
+  static targets = ["template", "target", "fields"]
 
-  formTargetConnected() {
-    // console.log("yay")
-    // let temp = this.formTarget
-    // let clon = temp.cloneNode(true)
-    // this.formTarget.appendChild(clon)
+  connect() {
+    console.log('connected')
   }
 
   add() {
-    let temp = this.formTarget
+    console.log('hi')
+    let temp = this.fieldsTarget
+    console.log(temp)
     let clone = temp.cloneNode(true)
-    this.formTarget.appendChild(clone)
+    console.log(clone)
+    this.targetTarget.appendChild(clone)
   }
 
   remove() {

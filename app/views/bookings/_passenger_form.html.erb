@@ -1,0 +1,12 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <%= f.label :name, "Name: " %>
+  <%= f.text_field :name %><br>
+  <%= f.label :email, "Email: " %>
+  <%= f.text_field :email %><br><br>
+
+  <button type="button" data-action="nested-form#remove">Remove Passenger</button>
+  
+  
+  <%= f.hidden_field :_destroy %>
+  <br>
+</div>
