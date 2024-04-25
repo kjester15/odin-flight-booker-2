@@ -8,11 +8,8 @@ export default class extends Controller {
   }
 
   add() {
-    console.log('hi')
-    let temp = this.fieldsTarget
-    console.log(temp)
-    let clone = temp.cloneNode(true)
-    console.log(clone)
+    let temp = this.templateTarget
+    let clone = temp.content.cloneNode(true)
     this.targetTarget.appendChild(clone)
   }
 
