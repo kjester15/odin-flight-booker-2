@@ -14,6 +14,6 @@ export default class extends Controller {
   }
 
   remove() {
-
+    this.targetTarget.removeChild(this.targetTarget.lastChild)
   }
 }
