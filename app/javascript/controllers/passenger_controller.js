@@ -14,6 +14,10 @@ export default class extends Controller {
   }
 
   remove() {
-    this.targetTarget.removeChild(this.targetTarget.lastChild)
+    if (this.targetTarget.childElementCount > 1) {
+      this.targetTarget.removeChild(this.targetTarget.lastChild)
+    } else {
+      alert("You must have at least 1 passenger.")
+    }
   }
 }

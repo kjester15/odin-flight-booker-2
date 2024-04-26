@@ -10,11 +10,11 @@
   <%= params[:departure_date] %><br><br>
   <%= "Passengers: " %><br><br>
   <template data-passenger-target="template">
-    <%= f.fields_for :passengers, Passenger.new, child_index: 'NEW_RECORD' do |passenger_fields| %>
+    <%= f.fields_for :passengers, Passenger.new do |passenger_fields| %>
       <%= render "passenger_form", f: passenger_fields %>
     <% end %>
   </template>
-
+  
   <div data-passenger-target="target">
     <%= f.fields_for :passengers do |passenger_fields| %>
       <%= render "passenger_form", f: passenger_fields %>
@@ -22,6 +22,7 @@
   </div>
 
   <button type="button" data-action="passenger#add">Add Passenger</button><br>
+  <button type="button" data-action="passenger#remove">Remove Passenger</button><br>
 
   <%= f.submit 'Save Booking' %>
 <% end %>
